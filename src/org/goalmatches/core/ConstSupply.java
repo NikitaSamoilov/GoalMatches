@@ -3,14 +3,18 @@ package org.goalmatches.core;
 
 public class ConstSupply extends Supply {
 
-    protected int supplyValue;
+    protected Match supplyValue;
 
-    public int getSupplyValue() {
+    public Match getSupplyValue() {
         return supplyValue;
+    }
+
+    public ConstSupply() {
+        supplyValue = new Match();
     }
 
     @Override
     public int getNextValue() {
-        return supplyValue;
+        return supplyValue.getValue();
     }
 }

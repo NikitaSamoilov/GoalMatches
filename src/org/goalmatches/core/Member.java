@@ -6,9 +6,13 @@ import java.util.List;
 
 public class Member {
     private String name;
-    private int currentValue;
+    private Match currentValue;
     private List<Integer> historyPush = new ArrayList<Integer>();
     private List<Integer> historyPop = new ArrayList<Integer>();
+
+    public Member() {
+        currentValue = new Match();
+    }
 
     public String getName() {
         return name;
@@ -18,21 +22,21 @@ public class Member {
         this.name = name;
     }
 
-    public int getCurrentValue() {
+    public Match getCurrentValue() {
         return currentValue;
     }
 
     public void pushValue(int count) {
-        currentValue += count;
+        currentValue.increaseValue(count);
         historyPush.add(count);
     }
 
     public void popValue(int count) {
-        if (currentValue < count) {
-            currentValue = 0;
-            historyPop.add(currentValue);
+        if (currentValue.getValue() < count) {
+            historyPop.add((currentValue.getValue()));
+            currentValue.setValue(0);
         } else {
-            currentValue -= count;
+            currentValue.decreaseValue(count);
             historyPop.add(count);
         }
     }

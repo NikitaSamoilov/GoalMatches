@@ -2,13 +2,17 @@ package org.goalmatches.core;
 
 
 public class Shipping {
-    private int currentvalue;
+    private Match currentValue;
 
-    public int getValue() {
-        return currentvalue;
+    public Match getValue() {
+        return currentValue;
+    }
+
+    public Shipping() {
+        currentValue = new Match();
     }
 
     public void push(int count) {
-        currentvalue += count;
+        currentValue.increaseValue(count);
     }
 }
