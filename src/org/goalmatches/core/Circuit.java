@@ -42,4 +42,34 @@ public class Circuit {
         this.shipping = shipping;
     }
 
+    public String getReport() {
+        //TODO: make it right
+        StringBuilder strBuilder = new StringBuilder();
+        for (Member member : members) {
+            strBuilder.append(member.getName());
+            strBuilder.append(": ");
+            strBuilder.append(member.getCurrentValue());
+            strBuilder.append("\n");
+        }
+        strBuilder.append("Shipping: ");
+        strBuilder.append(shipping.getValue());
+
+        return strBuilder.toString();
+    }
+
+    public void makeIteration() {
+        int val = supply.getNextValue();
+        for (Member member : members) {
+            val = makeMiniIteration(val, member);
+        }
+        shipping.push(val);
+    }
+
+    private int makeMiniIteration(int val, Member member) {
+        member.pushValue(val);
+        val = randomizer.getRandomValue();
+        member.popValue(val);
+        return val;
+    }
+
 }
