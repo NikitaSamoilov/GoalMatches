@@ -50,6 +50,8 @@ public class Circuit {
             strBuilder.append(": ");
             strBuilder.append(member.getCurrentValue());
             strBuilder.append("\n");
+            strBuilder.append(member.getHistory().toString());
+            strBuilder.append("\n");
         }
         strBuilder.append("Shipping: ");
         strBuilder.append(shipping.getValue());

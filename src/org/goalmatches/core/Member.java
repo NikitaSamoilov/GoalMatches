@@ -9,6 +9,7 @@ public class Member {
 
     public Member() {
         currentValue = new Match();
+        history = new MatchHistory();
     }
 
     public String getName() {

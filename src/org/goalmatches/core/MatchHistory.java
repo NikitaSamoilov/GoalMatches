@@ -1,6 +1,5 @@
 package org.goalmatches.core;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,4 +15,18 @@ public class MatchHistory {
         return popHistory;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder strBuilder = new StringBuilder();
+        strBuilder.append("Push History:");
+        for (Match match : pushHistory) {
+            strBuilder.append(String.format(" %d", match.getValue()));
+        }
+        strBuilder.append("\nPop History:");
+        for (Match match : popHistory) {
+            strBuilder.append(String.format(" %d", match.getValue()));
+        }
+
+        return strBuilder.toString();
+    }
 }
