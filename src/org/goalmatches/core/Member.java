@@ -1,14 +1,11 @@
 package org.goalmatches.core;
 
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Member {
     private String name;
     private Match currentValue;
-    private List<Integer> historyPush = new ArrayList<Integer>();
-    private List<Integer> historyPop = new ArrayList<Integer>();
+    private MatchHistory history;
 
     public Member() {
         currentValue = new Match();
@@ -26,18 +23,22 @@ public class Member {
         return currentValue;
     }
 
+    public MatchHistory getHistory() {
+        return history;
+    }
+
     public void pushValue(int count) {
         currentValue.increaseValue(count);
-        historyPush.add(count);
+        history.getPushHistory().add(new Match(count));
     }
 
     public void popValue(int count) {
         if (currentValue.getValue() < count) {
-            historyPop.add((currentValue.getValue()));
+            history.getPopHistory().add(new Match(currentValue.getValue()));
             currentValue.setValue(0);
         } else {
             currentValue.decreaseValue(count);
-            historyPop.add(count);
+            history.getPopHistory().add(new Match(count));
         }
     }
 }

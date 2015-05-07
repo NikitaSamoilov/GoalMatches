@@ -19,6 +19,14 @@ public class Match {
         value -= delta;
     }
 
+    public Match() {
+        //
+    }
+
+    public Match(int value) {
+        this.value = value;
+    }
+
     @Override
     public String toString() {
         return String.valueOf(value);
