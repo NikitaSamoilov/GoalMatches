@@ -9,8 +9,12 @@ public class ConstSupply extends Supply {
         return supplyValue;
     }
 
-    public ConstSupply(int value) {
-        supplyValue = new Match(value);
+    public void setSupplyValue(int value) {
+        supplyValue.setValue(value);
+    }
+
+    public ConstSupply() {
+        supplyValue = new Match();
     }
 
     @Override

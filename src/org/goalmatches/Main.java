@@ -9,7 +9,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Supply supply = new ConstSupply(4);
+        Supply supply = new ConstSupply();
         Shipping shipping = new Shipping();
         Randomizer randomizer = new StandartRandomizer(1, 7);
         List<Member> memberList = new ArrayList<Member>();
